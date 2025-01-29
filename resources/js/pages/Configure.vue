@@ -4,7 +4,7 @@
       <title>Configure Import</title>
     </Head>
 
-    <heading class="mb-6">CSV Import - Configure</heading>
+    <heading class="mb-6">CSV Imports - Configure</heading>
 
     <card class="p-8 space-y-4 mb-8">
       <p>
