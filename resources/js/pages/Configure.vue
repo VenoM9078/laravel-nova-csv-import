@@ -186,39 +186,45 @@ export default {
     watch: {
         resource: {
             handler(newValue) {
+                console.log('Resource changed to:', newValue);
+                console.log('Fields available:', this.fields[newValue]);
                 if (newValue === "") {
                     return;
                 }
 
                 const fields = this.fields[newValue];
 
-                // Restore original settings
+                // Restore original settings if returning to configured resource
                 if (newValue === this.config?.resource) {
                     this.init();
-
                     return;
                 }
 
                 // Reset the config
-                for (let {name, attribute} of fields) {
-                    this.mappings = {};
-                    this.values = {};
-                    this.combined = {};
-                    this.modifiers = {};
-					this.random = {};
+                this.mappings = {};
+                this.values = {};
+                this.combined = {};
+                this.modifiers = {};
+                this.random = {};
+
+                // Guard against undefined fields
+                if (!fields || !Array.isArray(fields)) {
+                    return;
                 }
 
                 // For each field of the resource, try to find a matching heading and pre-assign
-                for (let {name, attribute} of fields) {
-                    let heading = this.headings.indexOf(attribute);
-
-                    if (heading < 0) {
-                        continue;
+                fields.forEach(field => {
+                    if (!field || !field.attribute) {
+                        return;
                     }
 
-                    // Because they're an exact match, we don't need to get the exact heading out
-                    this.mappings[attribute] = attribute;
-                }
+                    let heading = this.headings.indexOf(field.attribute);
+
+                    if (heading >= 0) {
+                        // Because they're an exact match, we don't need to get the exact heading out
+                        this.mappings[field.attribute] = field.attribute;
+                    }
+                });
             },
             deep: true,
         }
