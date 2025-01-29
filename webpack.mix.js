@@ -1,15 +1,24 @@
-let mix = require('laravel-mix')
-let path = require('path')
+let mix = require("laravel-mix");
 
-require('./mix')
+require("./mix");
 
 mix
-  .setPublicPath('dist')
-  .js('resources/js/tool.js', 'js')
+  .setPublicPath("dist")
+  .js("resources/js/tool.js", "js")
   .vue({ version: 3 })
-  .css('resources/css/tool.css', 'css')
-  .nova('simonhamp/laravel-nova-csv-import')
+  .css("resources/css/tool.css", "css")
+  .nova("hmrreferrals/search-pharmacist");
 
-mix.alias({
-  'laravel-nova': path.join(__dirname, 'vendor/laravel/nova/resources/js/mixins/packages.js'),
-})
+mix.webpackConfig({
+  resolve: {
+    fallback: {
+      buffer: require.resolve("buffer/"),
+    },
+  },
+});
+
+mix.webpackConfig({
+  resolve: {
+    extensions: ["*", ".wasm", ".mjs", ".js", ".jsx", ".json", ".vue"],
+  },
+});
