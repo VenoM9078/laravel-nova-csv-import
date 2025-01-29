@@ -25,30 +25,33 @@
                             <SelectControl @change="(value) => element.name = value" :selected="element.name">
                                 <option value="">- Do not modify -</option>
 
-                                <option v-for="mod in mods" :value="mod.name">{{ mod.title }}</option>
+                                <option v-for="mod in mods" :key="mod.name" :value="mod.name">{{ mod.title }}</option>
                             </SelectControl>
 
-                            <label v-for="(config, name) in mods[element.name].settings"
-                                v-if="mods[element.name]?.settings" class="flex items-center space-x-2">
-                                <span>{{ config.title }}</span>
+                            <div v-if="mods[element.name]?.settings">
+                                <label v-for="(config, name) in mods[element.name].settings"
+                                    :key="name"
+                                    class="flex items-center space-x-2">
+                                    <span>{{ config.title }}</span>
 
-                                <SelectControl v-if="config.type === 'select'"
-                                    @change="(value) => element.settings[name] = value"
-                                    :selected="element.settings[name]">
-                                    <option v-for="(option, value) of config.options" :value="value"
-                                        :selected="value === config.default">
-                                        {{ option }}
-                                    </option>
-                                </SelectControl>
+                                    <SelectControl v-if="config.type === 'select'"
+                                        @change="(value) => element.settings[name] = value"
+                                        :selected="element.settings[name]">
+                                        <option v-for="(option, value) of config.options" :key="value" :value="value"
+                                            :selected="value === config.default">
+                                            {{ option }}
+                                        </option>
+                                    </SelectControl>
 
-                                <input type="text" v-if="config.type === 'string'" v-model="element.settings[name]"
-                                    class="form-control form-input form-input-bordered ml-4" :placeholder="config.default">
+                                    <input type="text" v-if="config.type === 'string'" v-model="element.settings[name]"
+                                        class="form-control form-input form-input-bordered ml-4" :placeholder="config.default">
 
-                                <input type="text" v-if="config.type === 'boolean'" v-model="element.settings[name]"
-                                    class="checkbox" :checked="config.default">
+                                    <input type="text" v-if="config.type === 'boolean'" v-model="element.settings[name]"
+                                        class="checkbox" :checked="config.default">
 
-                                <div class="help-text" v-html="config.help"></div>
-                            </label>
+                                    <div class="help-text" v-html="config.help"></div>
+                                </label>
+                            </div>
                         </div>
                         <button @click="remove(index)">&times;</button>
                     </div>

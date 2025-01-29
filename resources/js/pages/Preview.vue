@@ -19,24 +19,24 @@
                         <thead class="border-b">
                             <tr>
                                 <th class="border-r" rowspan="3" valign="bottom">#</th>
-                                <th v-for="(column, field) in columns">
+                                <th v-for="(column, field) in columns" :key="field">
                                     {{ column }}
                                 </th>
                             </tr>
                             <tr>
-                                <th v-for="(column, field) in columns">
+                                <th v-for="(column, field) in columns" :key="field">
                                     <i v-if="! column">unmapped</i>
                                     <span v-else>&downarrow;</span>
                                 </th>
                             </tr>
                             <tr>
-                                <th v-for="(column, field) in columns">{{ field }}</th>
+                                <th v-for="(column, field) in columns" :key="field">{{ field }}</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(row, index) in rows" class="group">
+                            <tr v-for="(row, index) in rows" :key="index" class="group">
                                 <td class="text-right border-r group-hover:bg-gray-50">{{ index + 1 }}</td>
-                                <td v-for="(column, field) in columns" class="group-hover:bg-gray-50">
+                                <td v-for="(column, field) in columns" :key="field" class="group-hover:bg-gray-50">
                                     <code>
                                         {{ row[field] }}
                                         <i v-if="! row[field]">null</i>

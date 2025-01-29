@@ -33,7 +33,7 @@
                         </thead>
                         <tbody>
                             <template v-for="(row, rowIndex) in failures">
-                                <tr v-for="(problem, index) in row" :class="{'border-b': index === row.length - 1}">
+                                <tr v-for="(problem, index) in row" :key="index" :class="{'border-b': index === row.length - 1}">
                                     <td v-if="index === 0" :rowspan="row.length" valign="top" align="right">
                                         {{ problem.row - 1 }}
                                     </td>
@@ -47,7 +47,7 @@
                                         </code>
                                     </td>
                                     <td valign="top">
-                                        <div v-for="error in problem.errors">{{ error }}</div>
+                                        <div v-for="error in problem.errors" :key="error">{{ error }}</div>
                                     </td>
                                     <td :rowspan="row.length" valign="top">
                                         <div v-if="index === 0">
@@ -55,7 +55,7 @@
                                                 {{ showFailureData[rowIndex] ? 'Hide data' : 'Show all row data' }}
                                             </BasicButton>
                                             <div v-show="showFailureData[rowIndex]">
-                                                <div v-for="(value, key) in problem.values">
+                                                <div v-for="(value, key) in problem.values" :key="key">
                                                     {{ config.mappings[key] }} &rightarrow; {{ key }} :
                                                     <code>
                                                         {{ value }}
@@ -84,7 +84,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="error in errors" class="border-b">
+                            <tr v-for="error in errors" :key="error" class="border-b">
                                 <td>{{ error }}</td>
                             </tr>
                         </tbody>
