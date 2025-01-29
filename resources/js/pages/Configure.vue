@@ -294,12 +294,26 @@ export default {
         },
 
         init() {
-            for (const prop of ['mappings', 'values', 'modifiers', 'combined', 'random']) {
-                if (this.config[prop] && !Array.isArray(this.config[prop])) {
-                    // https://github.com/inertiajs/inertia/issues/775#issuecomment-876030983
-                    this[prop] = JSON.parse(JSON.stringify(this.config[prop]));
-                }
+            // Define the properties we want to copy
+            const propsToInit = ['mappings', 'values', 'modifiers', 'combined', 'random'];
+            
+            // Check if config exists
+            if (!this.config) {
+                // Initialize empty objects if no config
+                propsToInit.forEach(prop => {
+                    this[prop] = {};
+                });
+                return;
             }
+
+            // Copy each property from config if it exists
+            propsToInit.forEach(prop => {
+                if (this.config[prop] && typeof this.config[prop] === 'object') {
+                    this[prop] = JSON.parse(JSON.stringify(this.config[prop]));
+                } else {
+                    this[prop] = {};
+                }
+            });
         },
 
         setFieldCombinators(attribute, config) {
