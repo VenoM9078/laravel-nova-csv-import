@@ -268,6 +268,9 @@ export default {
           this.random = {};
         }
 
+        console.log("Resetting configuration complete");
+
+        console.log("Processing fields for auto-matching");
         // For each field of the resource, try to find a matching heading and pre-assign
         for (let { name, attribute } of fields) {
           let heading = this.headings.indexOf(attribute);
@@ -343,7 +346,7 @@ export default {
     },
 
     init() {
-      console.log("Running VenoM's build 5");
+      console.log("Running VenoM's build 6");
       for (const prop of [
         "mappings",
         "values",
@@ -369,7 +372,10 @@ export default {
     handleResourceChange(value) {
       console.log("SelectControl change event:", value);
       try {
-        this.resource = value;
+        // Get the actual value from the event target
+        const selectedValue = value?.target?.value || value;
+        console.log("Selected value:", selectedValue);
+        this.resource = selectedValue;
       } catch (error) {
         console.error("Error setting resource:", error);
       }
