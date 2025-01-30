@@ -27,8 +27,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="row in rows" :key="row.join('-')">
-              <td v-for="(col, index) in row" :key="index">
+            <tr v-for="row in rows">
+              <td v-for="col in row">
                 <code>
                   {{ col }}
                   <i v-if="!col">null</i>
@@ -343,7 +343,7 @@ export default {
     },
 
     init() {
-      console.log("Running VenoM's build 4");
+      console.log("Running VenoM's build 5");
       for (const prop of [
         "mappings",
         "values",
