@@ -319,7 +319,7 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
       return "/nova-vendor/laravel-nova-csv-import/" + path;
     },
     init: function init() {
-      console.log("Running VenoM's build 6");
+      console.log("Running VenoM's build 7");
       for (var _i = 0, _arr = ["mappings", "values", "modifiers", "combined", "random"]; _i < _arr.length; _i++) {
         var prop = _arr[_i];
         if (this.config[prop] && !Array.isArray(this.config[prop])) {
@@ -344,6 +344,17 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
         this.resource = selectedValue;
       } catch (error) {
         console.error("Error setting resource:", error);
+      }
+    },
+    handleModifierChange: function handleModifierChange(attribute, value) {
+      console.log("Modifier change event:", value);
+      try {
+        var _value$target2;
+        var selectedValue = (value === null || value === void 0 || (_value$target2 = value.target) === null || _value$target2 === void 0 ? void 0 : _value$target2.value) || value;
+        console.log("Selected modifier value:", selectedValue);
+        this.mappings[attribute] = selectedValue;
+      } catch (error) {
+        console.error("Error setting modifier:", error);
       }
     }
   },

@@ -346,7 +346,7 @@ export default {
     },
 
     init() {
-      console.log("Running VenoM's build 6");
+      console.log("Running VenoM's build 7");
       for (const prop of [
         "mappings",
         "values",
@@ -378,6 +378,17 @@ export default {
         this.resource = selectedValue;
       } catch (error) {
         console.error("Error setting resource:", error);
+      }
+    },
+
+    handleModifierChange(attribute, value) {
+      console.log("Modifier change event:", value);
+      try {
+        const selectedValue = value?.target?.value || value;
+        console.log("Selected modifier value:", selectedValue);
+        this.mappings[attribute] = selectedValue;
+      } catch (error) {
+        console.error("Error setting modifier:", error);
       }
     },
   },
