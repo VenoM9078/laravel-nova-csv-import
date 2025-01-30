@@ -46,12 +46,16 @@
       <div class="inline-flex items-center">
         <b>Resource:</b>
         <SelectControl
-          @change="(value) => (resource = value)"
+          @change="handleResourceChange"
           :selected="resource"
           class="mx-4"
         >
           <option value="">- Select a resource -</option>
-          <option v-for="(label, index) in resources" :value="index" :key="index">
+          <option
+            v-for="(label, index) in resources"
+            :value="index"
+            :key="index"
+          >
             {{ label }}
           </option>
         </SelectControl>
@@ -97,11 +101,15 @@
           </optgroup>
 
           <optgroup label="Combined columns">
-            <option value="combined">Combine values from multiple columns</option>
+            <option value="combined">
+              Combine values from multiple columns
+            </option>
           </optgroup>
 
           <optgroup label="Meta data">
-            <option value="meta.file">File name (with suffix): {{ file }}</option>
+            <option value="meta.file">
+              File name (with suffix): {{ file }}
+            </option>
             <option value="meta.file_name">
               File name (without suffix): {{ file_name }}
             </option>
@@ -222,44 +230,67 @@ export default {
   ],
 
   created() {
+    console.log("Component created");
+    console.log("Resources:", this.resources);
+    console.log("Fields:", this.fields);
     this.init();
   },
 
   watch: {
     resource: {
       handler(newValue) {
+        console.log("Resource changed to:", newValue);
+        console.log("Available fields:", this.fields);
+        console.log("Fields for selected resource:", this.fields[newValue]);
+
         if (newValue === "") {
+          console.log("Empty resource selected, returning");
           return;
         }
 
         // Check if fields exist for the selected resource
-        if (!this.fields[newValue]) {
+        if (!this.fields || !this.fields[newValue]) {
           console.warn(`No fields found for resource: ${newValue}`);
           return;
         }
 
         const fields = this.fields[newValue];
+        console.log("Fields to process:", fields);
 
         // Restore original settings
         if (newValue === this.config?.resource) {
+          console.log("Restoring original settings");
           this.init();
           return;
         }
 
-        // Reset the config
+        console.log("Resetting configuration");
+        // Reset the config - do this first before any processing
         this.mappings = {};
         this.values = {};
         this.combined = {};
         this.modifiers = {};
         this.random = {};
 
-        // For each field of the resource, try to find a matching heading and pre-assign
-        fields.forEach(({ name, attribute }) => {
-          let heading = this.headings.indexOf(attribute);
-          if (heading >= 0) {
-            this.mappings[attribute] = attribute;
-          }
-        });
+        // Ensure fields is an array before trying to iterate
+        if (Array.isArray(fields)) {
+          console.log("Processing fields for auto-matching");
+          fields.forEach((field) => {
+            if (!field || !field.attribute) {
+              console.warn("Invalid field object:", field);
+              return;
+            }
+
+            let heading = this.headings.indexOf(field.attribute);
+            if (heading >= 0) {
+              this.mappings[field.attribute] = field.attribute;
+            }
+          });
+        } else {
+          console.warn("Fields is not an array:", fields);
+        }
+
+        console.log("Final mappings:", this.mappings);
       },
       deep: true,
     },
@@ -343,6 +374,15 @@ export default {
 
     setFieldModifiers(attribute, config) {
       this.modifiers[attribute] = config;
+    },
+
+    handleResourceChange(value) {
+      console.log("SelectControl change event:", value);
+      try {
+        this.resource = value;
+      } catch (error) {
+        console.error("Error setting resource:", error);
+      }
     },
   },
 
