@@ -9,16 +9,17 @@
       you don't choose a separator, the fields will be imported as an array.
     </p>
 
-    <SelectControl
-      @change="(value) => (rawSeparator = value)"
-      :selected="separatorOption"
+    <select
+      @change="(event) => (rawSeparator = event.target.value)"
+      :value="separatorOption"
+      class="form-control form-select form-select-bordered"
     >
       <option value="">- No separator -</option>
       <option v-for="(name, value) in separators" :value="value" :key="value">
         {{ name }}
       </option>
       <option value="__CUSTOM__">Custom</option>
-    </SelectControl>
+    </select>
 
     <label v-if="rawSeparator?.startsWith('__CUSTOM__')" class="block">
       Custom separator
@@ -35,9 +36,10 @@
         >
           <div>{{ index + 1 }}</div>
 
-          <SelectControl
-            @change="(value) => changeField(index, value)"
-            :selected="columns[index].name"
+          <select
+            @change="(event) => changeField(index, event.target.value)"
+            :value="columns[index].name"
+            class="form-control form-select form-select-bordered"
           >
             <option value="">- Select field -</option>
 
@@ -70,7 +72,7 @@
             <optgroup label="Custom - same value for each row">
               <option value="custom">Custom value</option>
             </optgroup>
-          </SelectControl>
+          </select>
 
           <label
             class="flex items-center space-x-2"

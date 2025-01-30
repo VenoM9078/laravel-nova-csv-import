@@ -85,9 +85,10 @@
 
         <h4 class="text-base font-bold">Source</h4>
 
-        <SelectControl
-          @change="(value) => (mappings[field.attribute] = value)"
-          :selected="mappings[field.attribute]"
+        <select
+          @change="(event) => (mappings[field.attribute] = event.target.value)"
+          :value="mappings[field.attribute]"
+          class="form-control form-select form-select-bordered"
         >
           <option value="" v-if="field.rules.includes('required')" disabled>
             - This field is required -
@@ -128,7 +129,7 @@
           <optgroup label="Custom - different for each row">
             <option value="random">Random string</option>
           </optgroup>
-        </SelectControl>
+        </select>
 
         <FieldCombinator
           v-if="mappings[field.attribute] === 'combined'"
@@ -346,7 +347,7 @@ export default {
     },
 
     init() {
-      console.log("Running VenoM's build 7");
+      console.log("Running VenoM's build 8");
       for (const prop of [
         "mappings",
         "values",

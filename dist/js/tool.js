@@ -117,7 +117,7 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     draggable: (vuedraggable__WEBPACK_IMPORTED_MODULE_0___default())
   },
-  props: ['attribute', 'config', 'mods'],
+  props: ["attribute", "config", "mods"],
   data: function data() {
     return {
       modifiers: []
@@ -147,13 +147,13 @@ __webpack_require__.r(__webpack_exports__);
     },
     template: function template() {
       return {
-        name: '',
+        name: "",
         settings: {}
       };
     },
     update: function update() {
       console.log("Updating modifiers for ".concat(this.attribute), this.modifiers);
-      this.$emit('update', this.attribute, this.modifiers);
+      this.$emit("update", this.attribute, this.modifiers);
     }
   }
 });
@@ -319,7 +319,7 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
       return "/nova-vendor/laravel-nova-csv-import/" + path;
     },
     init: function init() {
-      console.log("Running VenoM's build 7");
+      console.log("Running VenoM's build 8");
       for (var _i = 0, _arr = ["mappings", "values", "modifiers", "combined", "random"]; _i < _arr.length; _i++) {
         var prop = _arr[_i];
         if (this.config[prop] && !Array.isArray(this.config[prop])) {
@@ -509,68 +509,65 @@ var _hoisted_1 = {
   "class": "border-b pb-4 space-y-4"
 };
 var _hoisted_2 = ["value"];
-var _hoisted_3 = {
+var _hoisted_3 = ["value"];
+var _hoisted_4 = {
   key: 0,
   "class": "block"
 };
-var _hoisted_4 = {
+var _hoisted_5 = {
   "class": "flex mb-2 space-x-2 items-start border-rounded bg-gray-100 p-2 handle"
 };
-var _hoisted_5 = {
+var _hoisted_6 = ["onChange", "value"];
+var _hoisted_7 = {
   label: "Imported column"
 };
-var _hoisted_6 = ["value"];
-var _hoisted_7 = {
+var _hoisted_8 = ["value"];
+var _hoisted_9 = {
   label: "Meta data"
 };
-var _hoisted_8 = {
+var _hoisted_10 = {
   value: "meta.file"
 };
-var _hoisted_9 = {
+var _hoisted_11 = {
   value: "meta.file_name"
 };
-var _hoisted_10 = {
+var _hoisted_12 = {
   value: "meta.original_file"
 };
-var _hoisted_11 = {
+var _hoisted_13 = {
   value: "meta.original_file_name"
 };
-var _hoisted_12 = {
+var _hoisted_14 = {
   key: 0,
   "class": "flex items-center space-x-2"
 };
-var _hoisted_13 = ["onUpdate:modelValue"];
-var _hoisted_14 = {
+var _hoisted_15 = ["onUpdate:modelValue"];
+var _hoisted_16 = {
   key: 1
 };
-var _hoisted_15 = ["onUpdate:modelValue"];
-var _hoisted_16 = ["onClick"];
+var _hoisted_17 = ["onUpdate:modelValue"];
+var _hoisted_18 = ["onClick"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _$data$rawSeparator;
-  var _component_SelectControl = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("SelectControl");
   var _component_draggable = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("draggable");
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_cache[11] || (_cache[11] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
     "class": "text-base font-bold"
-  }, "Combine multiple columns", -1 /* HOISTED */)), _cache[12] || (_cache[12] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Select any number of fields from your import file to be combined. Fields are simply concatenated. Use the "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("code", null, "separator"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" field to define how they should be concatenated. If you don't choose a separator, the fields will be imported as an array. ")], -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SelectControl, {
-    onChange: _cache[0] || (_cache[0] = function (value) {
-      return $data.rawSeparator = value;
+  }, "Combine multiple columns", -1 /* HOISTED */)), _cache[12] || (_cache[12] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Select any number of fields from your import file to be combined. Fields are simply concatenated. Use the "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("code", null, "separator"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" field to define how they should be concatenated. If you don't choose a separator, the fields will be imported as an array. ")], -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+    onChange: _cache[0] || (_cache[0] = function (event) {
+      return $data.rawSeparator = event.target.value;
     }),
-    selected: $options.separatorOption
-  }, {
-    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_cache[4] || (_cache[4] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-        value: ""
-      }, "- No separator -", -1 /* HOISTED */)), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.separators, function (name, value) {
-        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
-          value: value,
-          key: value
-        }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(name), 9 /* TEXT, PROPS */, _hoisted_2);
-      }), 128 /* KEYED_FRAGMENT */)), _cache[5] || (_cache[5] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-        value: "__CUSTOM__"
-      }, "Custom", -1 /* HOISTED */))];
-    }),
-    _: 1 /* STABLE */
-  }, 8 /* PROPS */, ["selected"]), (_$data$rawSeparator = $data.rawSeparator) !== null && _$data$rawSeparator !== void 0 && _$data$rawSeparator.startsWith('__CUSTOM__') ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_3, [_cache[6] || (_cache[6] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Custom separator ")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    value: $options.separatorOption,
+    "class": "form-control form-select form-select-bordered"
+  }, [_cache[4] || (_cache[4] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+    value: ""
+  }, "- No separator -", -1 /* HOISTED */)), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.separators, function (name, value) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
+      value: value,
+      key: value
+    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(name), 9 /* TEXT, PROPS */, _hoisted_3);
+  }), 128 /* KEYED_FRAGMENT */)), _cache[5] || (_cache[5] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+    value: "__CUSTOM__"
+  }, "Custom", -1 /* HOISTED */))], 40 /* PROPS, NEED_HYDRATION */, _hoisted_2), (_$data$rawSeparator = $data.rawSeparator) !== null && _$data$rawSeparator !== void 0 && _$data$rawSeparator.startsWith('__CUSTOM__') ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_4, [_cache[6] || (_cache[6] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Custom separator ")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return $options.separator = $event;
     }),
@@ -586,42 +583,38 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     item: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref) {
       var element = _ref.element,
         index = _ref.index;
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(index + 1), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SelectControl, {
-        onChange: function onChange(value) {
-          return $options.changeField(index, value);
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(index + 1), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+        onChange: function onChange(event) {
+          return $options.changeField(index, event.target.value);
         },
-        selected: $data.columns[index].name
-      }, {
-        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-            value: ""
-          }, "- Select field -", -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("optgroup", _hoisted_5, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.headings, function (heading) {
-            return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
-              value: heading,
-              key: heading
-            }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(heading), 9 /* TEXT, PROPS */, _hoisted_6);
-          }), 128 /* KEYED_FRAGMENT */))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("optgroup", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", _hoisted_8, " File name (with suffix): " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.meta.file), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", _hoisted_9, " File name (without suffix): " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.meta.file_name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", _hoisted_10, " Original file name (with suffix): " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.meta.original_file), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", _hoisted_11, " Original file name (without suffix): " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.meta.original_file_name), 1 /* TEXT */)]), _cache[8] || (_cache[8] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("optgroup", {
-            label: "Custom - same value for each row"
-          }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-            value: "custom"
-          }, "Custom value")], -1 /* HOISTED */))];
-        }),
-        _: 2 /* DYNAMIC */
-      }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["onChange", "selected"]), $data.columns[index].name === 'custom' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_12, [_cache[9] || (_cache[9] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Value", -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+        value: $data.columns[index].name,
+        "class": "form-control form-select form-select-bordered"
+      }, [_cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+        value: ""
+      }, "- Select field -", -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("optgroup", _hoisted_7, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.headings, function (heading) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
+          value: heading,
+          key: heading
+        }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(heading), 9 /* TEXT, PROPS */, _hoisted_8);
+      }), 128 /* KEYED_FRAGMENT */))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("optgroup", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", _hoisted_10, " File name (with suffix): " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.meta.file), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", _hoisted_11, " File name (without suffix): " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.meta.file_name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", _hoisted_12, " Original file name (with suffix): " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.meta.original_file), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", _hoisted_13, " Original file name (without suffix): " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.meta.original_file_name), 1 /* TEXT */)]), _cache[8] || (_cache[8] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("optgroup", {
+        label: "Custom - same value for each row"
+      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+        value: "custom"
+      }, "Custom value")], -1 /* HOISTED */))], 40 /* PROPS, NEED_HYDRATION */, _hoisted_6), $data.columns[index].name === 'custom' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_14, [_cache[9] || (_cache[9] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Value", -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         "onUpdate:modelValue": function onUpdateModelValue($event) {
           return $data.columns[index].value = $event;
         },
         "class": "form-control form-input form-input-bordered flex-1"
-      }, null, 8 /* PROPS */, _hoisted_13), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.columns[index].value]])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), !$data.rawSeparator ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_14, [_cache[10] || (_cache[10] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" as ")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      }, null, 8 /* PROPS */, _hoisted_15), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.columns[index].value]])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), !$data.rawSeparator ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_16, [_cache[10] || (_cache[10] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" as ")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         "onUpdate:modelValue": function onUpdateModelValue($event) {
           return $data.columns[index].as = $event;
         },
         "class": "form-control form-input form-input-bordered mx-2"
-      }, null, 8 /* PROPS */, _hoisted_15), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.columns[index].as]])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      }, null, 8 /* PROPS */, _hoisted_17), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.columns[index].as]])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
         onClick: function onClick($event) {
           return $options.remove(index);
         }
-      }, "×", 8 /* PROPS */, _hoisted_16)])];
+      }, "×", 8 /* PROPS */, _hoisted_18)])];
     }),
     _: 1 /* STABLE */
   }, 8 /* PROPS */, ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
@@ -660,22 +653,23 @@ var _hoisted_3 = {
 var _hoisted_4 = {
   "class": "flex flex-col space-y-2"
 };
-var _hoisted_5 = ["value"];
-var _hoisted_6 = {
+var _hoisted_5 = ["onChange", "value"];
+var _hoisted_6 = ["value"];
+var _hoisted_7 = {
   key: 0
 };
-var _hoisted_7 = ["value", "selected"];
-var _hoisted_8 = ["onUpdate:modelValue", "placeholder"];
-var _hoisted_9 = ["onUpdate:modelValue", "checked"];
-var _hoisted_10 = ["innerHTML"];
-var _hoisted_11 = ["onClick"];
+var _hoisted_8 = ["onChange", "value"];
+var _hoisted_9 = ["value", "selected"];
+var _hoisted_10 = ["onUpdate:modelValue", "placeholder"];
+var _hoisted_11 = ["onUpdate:modelValue", "checked"];
 var _hoisted_12 = ["innerHTML"];
+var _hoisted_13 = ["onClick"];
+var _hoisted_14 = ["innerHTML"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _component_SelectControl = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("SelectControl");
   var _component_draggable = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("draggable");
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_cache[3] || (_cache[3] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
     "class": "text-base font-bold"
-  }, "Modifiers", -1 /* HOISTED */)), _cache[4] || (_cache[4] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Use modifiers to modify the value of the source selected above "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", null, "before"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" it gets saved to your resource. Modifiers are combinatory meaning you can stack them together to do weird and wonderful things with your data. They are executed in the order defined. ")], -1 /* HOISTED */)), _cache[5] || (_cache[5] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "TIP"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(": You can drag and drop modifiers to re-order them. ")], -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_draggable, {
+  }, "Modifiers", -1 /* HOISTED */)), _cache[4] || (_cache[4] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Use modifiers to modify the value of the source selected above "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", null, "before"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" it gets saved to your resource. Modifiers are combinatory meaning you can stack them together to do weird and wonderful things with your data. They are executed in the order defined. ")], -1 /* HOISTED */)), _cache[5] || (_cache[5] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "TIP"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(": You can drag and drop modifiers to re-order them.")], -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_draggable, {
     modelValue: $data.modifiers,
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
       return $data.modifiers = $event;
@@ -687,45 +681,37 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       var _$props$mods$element$, _$props$mods$element$2;
       var element = _ref.element,
         index = _ref.index;
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(index + 1), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SelectControl, {
-        onChange: function onChange(value) {
-          return element.name = value;
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(index + 1), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+        onChange: function onChange(event) {
+          return element.name = event.target.value;
         },
-        selected: element.name
-      }, {
-        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-            value: ""
-          }, "- Do not modify -", -1 /* HOISTED */)), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.mods, function (mod) {
-            return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
-              key: mod.name,
-              value: mod.name
-            }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(mod.title), 9 /* TEXT, PROPS */, _hoisted_5);
-          }), 128 /* KEYED_FRAGMENT */))];
-        }),
-        _: 2 /* DYNAMIC */
-      }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["onChange", "selected"]), (_$props$mods$element$ = $props.mods[element.name]) !== null && _$props$mods$element$ !== void 0 && _$props$mods$element$.settings ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_6, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.mods[element.name].settings, function (config, name) {
+        value: element.name,
+        "class": "form-control form-select form-select-bordered"
+      }, [_cache[2] || (_cache[2] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+        value: ""
+      }, "- Do not modify -", -1 /* HOISTED */)), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.mods, function (mod) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
+          key: mod.name,
+          value: mod.name
+        }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(mod.title), 9 /* TEXT, PROPS */, _hoisted_6);
+      }), 128 /* KEYED_FRAGMENT */))], 40 /* PROPS, NEED_HYDRATION */, _hoisted_5), (_$props$mods$element$ = $props.mods[element.name]) !== null && _$props$mods$element$ !== void 0 && _$props$mods$element$.settings ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_7, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.mods[element.name].settings, function (config, name) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", {
           key: name,
           "class": "flex items-center space-x-2"
-        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(config.title), 1 /* TEXT */), config.type === 'select' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_SelectControl, {
+        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(config.title), 1 /* TEXT */), config.type === 'select' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("select", {
           key: 0,
-          onChange: function onChange(value) {
-            return element.settings[name] = value;
+          onChange: function onChange(event) {
+            return element.settings[name] = event.target.value;
           },
-          selected: element.settings[name]
-        }, {
-          "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-            return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(config.options, function (option, value) {
-              return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
-                key: value,
-                value: value,
-                selected: value === config["default"]
-              }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(option), 9 /* TEXT, PROPS */, _hoisted_7);
-            }), 128 /* KEYED_FRAGMENT */))];
-          }),
-          _: 2 /* DYNAMIC */
-        }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["onChange", "selected"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), config.type === 'string' ? (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("input", {
+          value: element.settings[name],
+          "class": "form-control form-select form-select-bordered"
+        }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(config.options, function (option, value) {
+          return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
+            key: value,
+            value: value,
+            selected: value === config["default"]
+          }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(option), 9 /* TEXT, PROPS */, _hoisted_9);
+        }), 128 /* KEYED_FRAGMENT */))], 40 /* PROPS, NEED_HYDRATION */, _hoisted_8)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), config.type === 'string' ? (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("input", {
           key: 1,
           type: "text",
           "onUpdate:modelValue": function onUpdateModelValue($event) {
@@ -733,7 +719,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           },
           "class": "form-control form-input form-input-bordered ml-4",
           placeholder: config["default"]
-        }, null, 8 /* PROPS */, _hoisted_8)), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, element.settings[name]]]) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), config.type === 'boolean' ? (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("input", {
+        }, null, 8 /* PROPS */, _hoisted_10)), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, element.settings[name]]]) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), config.type === 'boolean' ? (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("input", {
           key: 2,
           type: "text",
           "onUpdate:modelValue": function onUpdateModelValue($event) {
@@ -741,17 +727,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           },
           "class": "checkbox",
           checked: config["default"]
-        }, null, 8 /* PROPS */, _hoisted_9)), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, element.settings[name]]]) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+        }, null, 8 /* PROPS */, _hoisted_11)), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, element.settings[name]]]) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
           "class": "help-text",
           innerHTML: config.help
-        }, null, 8 /* PROPS */, _hoisted_10)]);
+        }, null, 8 /* PROPS */, _hoisted_12)]);
       }), 128 /* KEYED_FRAGMENT */))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
         onClick: function onClick($event) {
           return $options.remove(index);
         }
-      }, "×", 8 /* PROPS */, _hoisted_11)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+      }, "×", 8 /* PROPS */, _hoisted_13)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
         innerHTML: (_$props$mods$element$2 = $props.mods[element.name]) === null || _$props$mods$element$2 === void 0 ? void 0 : _$props$mods$element$2.description
-      }, null, 8 /* PROPS */, _hoisted_12)])];
+      }, null, 8 /* PROPS */, _hoisted_14)])];
     }),
     _: 1 /* STABLE */
   }, 8 /* PROPS */, ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
@@ -804,52 +790,52 @@ var _hoisted_9 = {
 var _hoisted_10 = {
   "class": "text-lg font-bold"
 };
-var _hoisted_11 = {
+var _hoisted_11 = ["onChange", "value"];
+var _hoisted_12 = {
   key: 0,
   value: "",
   disabled: ""
 };
-var _hoisted_12 = {
+var _hoisted_13 = {
   key: 1,
   value: ""
 };
-var _hoisted_13 = {
+var _hoisted_14 = {
   label: "Imported column"
 };
-var _hoisted_14 = ["value"];
-var _hoisted_15 = {
+var _hoisted_15 = ["value"];
+var _hoisted_16 = {
   label: "Meta data"
 };
-var _hoisted_16 = {
+var _hoisted_17 = {
   value: "meta.file"
 };
-var _hoisted_17 = {
+var _hoisted_18 = {
   value: "meta.file_name"
 };
-var _hoisted_18 = {
+var _hoisted_19 = {
   value: "meta.original_file"
 };
-var _hoisted_19 = {
+var _hoisted_20 = {
   value: "meta.original_file_name"
 };
-var _hoisted_20 = {
+var _hoisted_21 = {
   key: 1,
   "class": "flex items-center space-x-2"
 };
-var _hoisted_21 = ["onUpdate:modelValue"];
-var _hoisted_22 = {
+var _hoisted_22 = ["onUpdate:modelValue"];
+var _hoisted_23 = {
   key: 2,
   "class": "flex items-center space-x-2"
 };
-var _hoisted_23 = ["onUpdate:modelValue"];
-var _hoisted_24 = {
+var _hoisted_24 = ["onUpdate:modelValue"];
+var _hoisted_25 = {
   "class": "flex justify-between"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
   var _component_heading = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("heading");
   var _component_card = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("card");
-  var _component_SelectControl = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("SelectControl");
   var _component_FieldCombinator = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FieldCombinator");
   var _component_Modifiers = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Modifiers");
   var _component_LinkButton = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("LinkButton");
@@ -911,34 +897,30 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
         return [_cache[18] || (_cache[18] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("small", null, "Field", -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(field.name) + " ", 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("small", null, [_cache[11] || (_cache[11] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("(")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("code", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(field.attribute), 1 /* TEXT */), _cache[12] || (_cache[12] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(")"))])]), _cache[19] || (_cache[19] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
           "class": "text-base font-bold"
-        }, "Source", -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SelectControl, {
-          onChange: function onChange(value) {
-            return $data.mappings[field.attribute] = value;
+        }, "Source", -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+          onChange: function onChange(event) {
+            return $data.mappings[field.attribute] = event.target.value;
           },
-          selected: $data.mappings[field.attribute]
-        }, {
-          "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-            return [field.rules.includes('required') ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", _hoisted_11, " - This field is required - ")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", _hoisted_12, "- Leave field empty -")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("optgroup", _hoisted_13, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.headings, function (heading) {
-              return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
-                value: heading,
-                key: heading
-              }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(heading), 9 /* TEXT, PROPS */, _hoisted_14);
-            }), 128 /* KEYED_FRAGMENT */))]), _cache[13] || (_cache[13] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("optgroup", {
-              label: "Combined columns"
-            }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-              value: "combined"
-            }, " Combine values from multiple columns ")], -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("optgroup", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", _hoisted_16, " File name (with suffix): " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.file), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", _hoisted_17, " File name (without suffix): " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.file_name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", _hoisted_18, " Original file name (with suffix): " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.config.original_filename), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", _hoisted_19, " Original file name (without suffix): " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.original_file_name), 1 /* TEXT */)]), _cache[14] || (_cache[14] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("optgroup", {
-              label: "Custom - same value for each row"
-            }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-              value: "custom"
-            }, "Single value")], -1 /* HOISTED */)), _cache[15] || (_cache[15] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("optgroup", {
-              label: "Custom - different for each row"
-            }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-              value: "random"
-            }, "Random string")], -1 /* HOISTED */))];
-          }),
-          _: 2 /* DYNAMIC */
-        }, 1032 /* PROPS, DYNAMIC_SLOTS */, ["onChange", "selected"]), $data.mappings[field.attribute] === 'combined' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_FieldCombinator, {
+          value: $data.mappings[field.attribute],
+          "class": "form-control form-select form-select-bordered"
+        }, [field.rules.includes('required') ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", _hoisted_12, " - This field is required - ")) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", _hoisted_13, "- Leave field empty -")), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("optgroup", _hoisted_14, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.headings, function (heading) {
+          return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
+            value: heading,
+            key: heading
+          }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(heading), 9 /* TEXT, PROPS */, _hoisted_15);
+        }), 128 /* KEYED_FRAGMENT */))]), _cache[13] || (_cache[13] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("optgroup", {
+          label: "Combined columns"
+        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+          value: "combined"
+        }, " Combine values from multiple columns ")], -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("optgroup", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", _hoisted_17, " File name (with suffix): " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.file), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", _hoisted_18, " File name (without suffix): " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.file_name), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", _hoisted_19, " Original file name (with suffix): " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.config.original_filename), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", _hoisted_20, " Original file name (without suffix): " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.original_file_name), 1 /* TEXT */)]), _cache[14] || (_cache[14] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("optgroup", {
+          label: "Custom - same value for each row"
+        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+          value: "custom"
+        }, "Single value")], -1 /* HOISTED */)), _cache[15] || (_cache[15] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("optgroup", {
+          label: "Custom - different for each row"
+        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+          value: "random"
+        }, "Random string")], -1 /* HOISTED */))], 40 /* PROPS, NEED_HYDRATION */, _hoisted_11), $data.mappings[field.attribute] === 'combined' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_FieldCombinator, {
           key: 0,
           attribute: field.attribute,
           config: $data.combined[field.attribute],
@@ -950,17 +932,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             original_file_name: $options.original_file_name
           },
           onUpdate: $options.setFieldCombinators
-        }, null, 8 /* PROPS */, ["attribute", "config", "headings", "meta", "onUpdate"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Custom value input field "), $data.mappings[field.attribute] === 'custom' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_20, [_cache[16] || (_cache[16] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Value", -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+        }, null, 8 /* PROPS */, ["attribute", "config", "headings", "meta", "onUpdate"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Custom value input field "), $data.mappings[field.attribute] === 'custom' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_21, [_cache[16] || (_cache[16] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Value", -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
           "onUpdate:modelValue": function onUpdateModelValue($event) {
             return $data.values[field.attribute] = $event;
           },
           "class": "form-control form-input form-input-bordered flex-1"
-        }, null, 8 /* PROPS */, _hoisted_21), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.values[field.attribute]]])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Random string length "), $data.mappings[field.attribute] === 'random' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_22, [_cache[17] || (_cache[17] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Length", -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+        }, null, 8 /* PROPS */, _hoisted_22), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.values[field.attribute]]])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Random string length "), $data.mappings[field.attribute] === 'random' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", _hoisted_23, [_cache[17] || (_cache[17] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "Length", -1 /* HOISTED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
           "onUpdate:modelValue": function onUpdateModelValue($event) {
             return $data.random[field.attribute] = $event;
           },
           "class": "form-control form-input form-input-bordered"
-        }, null, 8 /* PROPS */, _hoisted_23), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.random[field.attribute]]])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.mappings[field.attribute] ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Modifiers, {
+        }, null, 8 /* PROPS */, _hoisted_24), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.random[field.attribute]]])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.mappings[field.attribute] ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Modifiers, {
           key: 3,
           attribute: field.attribute,
           config: $data.modifiers[field.attribute],
@@ -977,7 +959,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "p-8 space-y-4"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_LinkButton, {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_LinkButton, {
         onClick: $options.goBack
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
