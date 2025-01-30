@@ -21,14 +21,14 @@
         <table cellpadding="10">
           <thead class="border-b">
             <tr>
-              <th v-for="heading in headings">
+              <th v-for="heading in headings" :key="heading">
                 <span class="font-bold">{{ heading }}</span>
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="row in rows">
-              <td v-for="col in row">
+            <tr v-for="row in rows" :key="row.join('-')">
+              <td v-for="(col, index) in row" :key="index">
                 <code>
                   {{ col }}
                   <i v-if="!col">null</i>
@@ -51,7 +51,7 @@
           class="mx-4"
         >
           <option value="">- Select a resource -</option>
-          <option v-for="(label, index) in resources" :value="index">
+          <option v-for="(label, index) in resources" :value="index" :key="index">
             {{ label }}
           </option>
         </SelectControl>
@@ -64,112 +64,113 @@
       </p>
     </card>
 
-    <card
-      class="p-8 space-y-4 mb-8"
-      v-for="field in fields[resource]"
-      v-if="resource"
-      :key="field.attribute"
-    >
-      <small>Field</small>
-      <h3 class="text-lg font-bold">
-        {{ field.name }}
-        <small
-          >(<code>{{ field.attribute }}</code
-          >)</small
+    <template v-if="resource">
+      <card
+        class="p-8 space-y-4 mb-8"
+        v-for="field in fields[resource]"
+        :key="field.attribute"
+      >
+        <small>Field</small>
+        <h3 class="text-lg font-bold">
+          {{ field.name }}
+          <small
+            >(<code>{{ field.attribute }}</code
+            >)</small
+          >
+        </h3>
+
+        <h4 class="text-base font-bold">Source</h4>
+
+        <SelectControl
+          @change="(value) => (mappings[field.attribute] = value)"
+          :selected="mappings[field.attribute]"
         >
-      </h3>
-
-      <h4 class="text-base font-bold">Source</h4>
-
-      <SelectControl
-        @change="(value) => (mappings[field.attribute] = value)"
-        :selected="mappings[field.attribute]"
-      >
-        <option value="" v-if="field.rules.includes('required')" disabled>
-          - This field is required -
-        </option>
-        <option value="" v-else>- Leave field empty -</option>
-
-        <optgroup label="Imported column">
-          <option v-for="heading in headings" :value="heading" :key="heading">
-            {{ heading }}
+          <option value="" v-if="field.rules.includes('required')" disabled>
+            - This field is required -
           </option>
-        </optgroup>
+          <option value="" v-else>- Leave field empty -</option>
 
-        <optgroup label="Combined columns">
-          <option value="combined">Combine values from multiple columns</option>
-        </optgroup>
+          <optgroup label="Imported column">
+            <option v-for="heading in headings" :value="heading" :key="heading">
+              {{ heading }}
+            </option>
+          </optgroup>
 
-        <optgroup label="Meta data">
-          <option value="meta.file">File name (with suffix): {{ file }}</option>
-          <option value="meta.file_name">
-            File name (without suffix): {{ file_name }}
-          </option>
-          <option value="meta.original_file">
-            Original file name (with suffix): {{ config.original_filename }}
-          </option>
-          <option value="meta.original_file_name">
-            Original file name (without suffix): {{ original_file_name }}
-          </option>
-        </optgroup>
+          <optgroup label="Combined columns">
+            <option value="combined">Combine values from multiple columns</option>
+          </optgroup>
 
-        <optgroup label="Custom - same value for each row">
-          <option value="custom">Single value</option>
-        </optgroup>
+          <optgroup label="Meta data">
+            <option value="meta.file">File name (with suffix): {{ file }}</option>
+            <option value="meta.file_name">
+              File name (without suffix): {{ file_name }}
+            </option>
+            <option value="meta.original_file">
+              Original file name (with suffix): {{ config.original_filename }}
+            </option>
+            <option value="meta.original_file_name">
+              Original file name (without suffix): {{ original_file_name }}
+            </option>
+          </optgroup>
 
-        <optgroup label="Custom - different for each row">
-          <option value="random">Random string</option>
-        </optgroup>
-      </SelectControl>
+          <optgroup label="Custom - same value for each row">
+            <option value="custom">Single value</option>
+          </optgroup>
 
-      <FieldCombinator
-        v-if="mappings[field.attribute] === 'combined'"
-        :attribute="field.attribute"
-        :config="combined[field.attribute]"
-        :headings="headings"
-        :meta="{
-          file: file,
-          file_name: file_name,
-          original_file: config.original_filename,
-          original_file_name: original_file_name,
-        }"
-        @update="setFieldCombinators"
-      >
-      </FieldCombinator>
+          <optgroup label="Custom - different for each row">
+            <option value="random">Random string</option>
+          </optgroup>
+        </SelectControl>
 
-      <!-- Custom value input field -->
-      <label
-        class="flex items-center space-x-2"
-        v-if="mappings[field.attribute] === 'custom'"
-      >
-        <span>Value</span>
-        <input
-          v-model="values[field.attribute]"
-          class="form-control form-input form-input-bordered flex-1"
-        />
-      </label>
+        <FieldCombinator
+          v-if="mappings[field.attribute] === 'combined'"
+          :attribute="field.attribute"
+          :config="combined[field.attribute]"
+          :headings="headings"
+          :meta="{
+            file: file,
+            file_name: file_name,
+            original_file: config.original_filename,
+            original_file_name: original_file_name,
+          }"
+          @update="setFieldCombinators"
+        >
+        </FieldCombinator>
 
-      <!-- Random string length -->
-      <label
-        class="flex items-center space-x-2"
-        v-if="mappings[field.attribute] === 'random'"
-      >
-        <span>Length</span>
-        <input
-          v-model="random[field.attribute]"
-          class="form-control form-input form-input-bordered"
-        />
-      </label>
+        <!-- Custom value input field -->
+        <label
+          class="flex items-center space-x-2"
+          v-if="mappings[field.attribute] === 'custom'"
+        >
+          <span>Value</span>
+          <input
+            v-model="values[field.attribute]"
+            class="form-control form-input form-input-bordered flex-1"
+          />
+        </label>
 
-      <Modifiers
-        v-if="mappings[field.attribute]"
-        :attribute="field.attribute"
-        :config.sync="modifiers[field.attribute]"
-        :mods="mods"
-        @update="setFieldModifiers"
-      >
-      </Modifiers>
-    </card>
+        <!-- Random string length -->
+        <label
+          class="flex items-center space-x-2"
+          v-if="mappings[field.attribute] === 'random'"
+        >
+          <span>Length</span>
+          <input
+            v-model="random[field.attribute]"
+            class="form-control form-input form-input-bordered"
+          />
+        </label>
+
+        <Modifiers
+          v-if="mappings[field.attribute]"
+          :attribute="field.attribute"
+          v-model:config="modifiers[field.attribute]"
+          :mods="mods"
+          @update="setFieldModifiers"
+        >
+        </Modifiers>
+      </card>
+    </template>
 
     <card class="p-8 space-y-4">
       <div class="flex justify-between">
@@ -231,35 +232,34 @@ export default {
           return;
         }
 
+        // Check if fields exist for the selected resource
+        if (!this.fields[newValue]) {
+          console.warn(`No fields found for resource: ${newValue}`);
+          return;
+        }
+
         const fields = this.fields[newValue];
 
         // Restore original settings
         if (newValue === this.config?.resource) {
           this.init();
-
           return;
         }
 
         // Reset the config
-        for (let { name, attribute } of fields) {
-          this.mappings = {};
-          this.values = {};
-          this.combined = {};
-          this.modifiers = {};
-          this.random = {};
-        }
+        this.mappings = {};
+        this.values = {};
+        this.combined = {};
+        this.modifiers = {};
+        this.random = {};
 
         // For each field of the resource, try to find a matching heading and pre-assign
-        for (let { name, attribute } of fields) {
+        fields.forEach(({ name, attribute }) => {
           let heading = this.headings.indexOf(attribute);
-
-          if (heading < 0) {
-            continue;
+          if (heading >= 0) {
+            this.mappings[attribute] = attribute;
           }
-
-          // Because they're an exact match, we don't need to get the exact heading out
-          this.mappings[attribute] = attribute;
-        }
+        });
       },
       deep: true,
     },
