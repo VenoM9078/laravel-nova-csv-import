@@ -45,10 +45,10 @@
 
       <div class="inline-flex items-center">
         <b>Resource:</b>
-        <SelectControl
+        <select
           @change="handleResourceChange"
-          :selected="resource"
-          class="mx-4"
+          :value="resource"
+          class="mx-4 form-control form-select form-select-bordered"
         >
           <option value="">- Select a resource -</option>
           <option
@@ -58,7 +58,7 @@
           >
             {{ label }}
           </option>
-        </SelectControl>
+        </select>
       </div>
 
       <p v-if="resource">
@@ -369,16 +369,10 @@ export default {
       this.modifiers[attribute] = config;
     },
 
-    handleResourceChange(value) {
-      console.log("SelectControl change event:", value);
-      try {
-        // Get the actual value from the event target
-        const selectedValue = value?.target?.value || value;
-        console.log("Selected value:", selectedValue);
-        this.resource = selectedValue;
-      } catch (error) {
-        console.error("Error setting resource:", error);
-      }
+    handleResourceChange(event) {
+      const value = event.target.value;
+      console.log("Resource selected:", value);
+      this.resource = value;
     },
 
     handleModifierChange(attribute, value) {
