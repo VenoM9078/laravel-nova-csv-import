@@ -304,7 +304,7 @@ __webpack_require__.r(__webpack_exports__);
       return "/nova-vendor/laravel-nova-csv-import/" + path;
     },
     init: function init() {
-      console.log("Running VenoM's build");
+      console.log("Running VenoM's build 2");
       for (var _i = 0, _arr = ["mappings", "values", "modifiers", "combined", "random"]; _i < _arr.length; _i++) {
         var prop = _arr[_i];
         if (this.config[prop] && !Array.isArray(this.config[prop])) {
