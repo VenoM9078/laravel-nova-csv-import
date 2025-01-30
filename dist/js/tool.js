@@ -318,7 +318,7 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
       return "/nova-vendor/laravel-nova-csv-import/" + path;
     },
     init: function init() {
-      console.log("Running VenoM's build 2");
+      console.log("Running VenoM's build 4");
       for (var _i = 0, _arr = ["mappings", "values", "modifiers", "combined", "random"]; _i < _arr.length; _i++) {
         var prop = _arr[_i];
         if (this.config[prop] && !Array.isArray(this.config[prop])) {

@@ -343,7 +343,7 @@ export default {
     },
 
     init() {
-      console.log("Running VenoM's build 2");
+      console.log("Running VenoM's build 4");
       for (const prop of [
         "mappings",
         "values",
