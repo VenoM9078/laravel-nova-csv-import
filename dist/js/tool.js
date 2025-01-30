@@ -175,6 +175,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuedraggable__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuedraggable__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_FieldCombinator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/FieldCombinator */ "./resources/js/components/FieldCombinator.vue");
 /* harmony import */ var _components_Modifiers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Modifiers */ "./resources/js/components/Modifiers.vue");
+function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 
 
 
@@ -206,19 +209,12 @@ __webpack_require__.r(__webpack_exports__);
   watch: {
     resource: {
       handler: function handler(newValue) {
-        var _this$config2,
-          _this = this;
+        var _this$config2;
         console.log("Resource changed to:", newValue);
         console.log("Available fields:", this.fields);
         console.log("Fields for selected resource:", this.fields[newValue]);
         if (newValue === "") {
           console.log("Empty resource selected, returning");
-          return;
-        }
-
-        // Check if fields exist for the selected resource
-        if (!this.fields || !this.fields[newValue]) {
-          console.warn("No fields found for resource: ".concat(newValue));
           return;
         }
         var fields = this.fields[newValue];
@@ -231,28 +227,46 @@ __webpack_require__.r(__webpack_exports__);
           return;
         }
         console.log("Resetting configuration");
-        // Reset the config - do this first before any processing
-        this.mappings = {};
-        this.values = {};
-        this.combined = {};
-        this.modifiers = {};
-        this.random = {};
+        // Reset the config
+        var _iterator = _createForOfIteratorHelper(fields),
+          _step;
+        try {
+          for (_iterator.s(); !(_step = _iterator.n()).done;) {
+            var _step$value = _step.value,
+              name = _step$value.name,
+              attribute = _step$value.attribute;
+            this.mappings = {};
+            this.values = {};
+            this.combined = {};
+            this.modifiers = {};
+            this.random = {};
+          }
 
-        // Ensure fields is an array before trying to iterate
-        if (Array.isArray(fields)) {
-          console.log("Processing fields for auto-matching");
-          fields.forEach(function (field) {
-            if (!field || !field.attribute) {
-              console.warn("Invalid field object:", field);
-              return;
+          // For each field of the resource, try to find a matching heading and pre-assign
+        } catch (err) {
+          _iterator.e(err);
+        } finally {
+          _iterator.f();
+        }
+        var _iterator2 = _createForOfIteratorHelper(fields),
+          _step2;
+        try {
+          for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+            var _step2$value = _step2.value,
+              _name = _step2$value.name,
+              _attribute = _step2$value.attribute;
+            var heading = this.headings.indexOf(_attribute);
+            if (heading < 0) {
+              continue;
             }
-            var heading = _this.headings.indexOf(field.attribute);
-            if (heading >= 0) {
-              _this.mappings[field.attribute] = field.attribute;
-            }
-          });
-        } else {
-          console.warn("Fields is not an array:", fields);
+
+            // Because they're an exact match, we don't need to get the exact heading out
+            this.mappings[_attribute] = _attribute;
+          }
+        } catch (err) {
+          _iterator2.e(err);
+        } finally {
+          _iterator2.f();
         }
         console.log("Final mappings:", this.mappings);
       },
@@ -261,7 +275,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     save: function save() {
-      var _this2 = this;
+      var _this = this;
       if (!this.isValid()) {
         return;
       }
@@ -278,11 +292,11 @@ __webpack_require__.r(__webpack_exports__);
       Nova.request().post(this.url("configure"), data).then(function (response) {
         if (response.status === 200) {
           Nova.success("Configuration saved");
-          Nova.visit("/csv-import/preview/" + _this2.file);
+          Nova.visit("/csv-import/preview/" + _this.file);
         }
       })["catch"](function (e) {
         console.log(e);
-        _this2.saving = false;
+        _this.saving = false;
         Nova.error("There was a problem saving your configuration");
       });
       this.saving = false;
@@ -839,7 +853,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "mb-6"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return _cache[1] || (_cache[1] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("CSV Imports - Configure")]);
+      return _cache[1] || (_cache[1] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("CSV Import - Configure")]);
     }),
     _: 1 /* STABLE */
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_card, {

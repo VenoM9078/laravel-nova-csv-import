@@ -4,7 +4,7 @@
       <title>Configure Import</title>
     </Head>
 
-    <heading class="mb-6">CSV Imports - Configure</heading>
+    <heading class="mb-6">CSV Import - Configure</heading>
 
     <card class="p-8 space-y-4 mb-8">
       <p>
@@ -248,12 +248,6 @@ export default {
           return;
         }
 
-        // Check if fields exist for the selected resource
-        if (!this.fields || !this.fields[newValue]) {
-          console.warn(`No fields found for resource: ${newValue}`);
-          return;
-        }
-
         const fields = this.fields[newValue];
         console.log("Fields to process:", fields);
 
@@ -265,29 +259,25 @@ export default {
         }
 
         console.log("Resetting configuration");
-        // Reset the config - do this first before any processing
-        this.mappings = {};
-        this.values = {};
-        this.combined = {};
-        this.modifiers = {};
-        this.random = {};
+        // Reset the config
+        for (let { name, attribute } of fields) {
+          this.mappings = {};
+          this.values = {};
+          this.combined = {};
+          this.modifiers = {};
+          this.random = {};
+        }
 
-        // Ensure fields is an array before trying to iterate
-        if (Array.isArray(fields)) {
-          console.log("Processing fields for auto-matching");
-          fields.forEach((field) => {
-            if (!field || !field.attribute) {
-              console.warn("Invalid field object:", field);
-              return;
-            }
+        // For each field of the resource, try to find a matching heading and pre-assign
+        for (let { name, attribute } of fields) {
+          let heading = this.headings.indexOf(attribute);
 
-            let heading = this.headings.indexOf(field.attribute);
-            if (heading >= 0) {
-              this.mappings[field.attribute] = field.attribute;
-            }
-          });
-        } else {
-          console.warn("Fields is not an array:", fields);
+          if (heading < 0) {
+            continue;
+          }
+
+          // Because they're an exact match, we don't need to get the exact heading out
+          this.mappings[attribute] = attribute;
         }
 
         console.log("Final mappings:", this.mappings);
